@@ -49,7 +49,7 @@
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
-void SystemClock_Config (void);
+void SystemClock_Config(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -63,7 +63,7 @@ void SystemClock_Config (void);
  * @brief  The application entry point.
  * @retval int
  */
-int main (void)
+int main(void)
 {
 
   /* USER CODE BEGIN 1 */
@@ -95,12 +95,12 @@ int main (void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  while (1)
+  while(1)
     {
       GPIO_PinState state = HAL_GPIO_ReadPin(BTN_GPIO_Port, BTN_Pin);
       HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, state);
 
-      if (state == GPIO_PIN_RESET)
+      if(state == GPIO_PIN_RESET)
 	{
 	  printf("Button is pressed...\n\r");
 	}
@@ -117,10 +117,10 @@ int main (void)
  * @brief System Clock Configuration
  * @retval None
  */
-void SystemClock_Config (void)
+void SystemClock_Config(void)
 {
-  RCC_OscInitTypeDef RCC_OscInitStruct = { 0 };
-  RCC_ClkInitTypeDef RCC_ClkInitStruct = { 0 };
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+  RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
 
   /** Configure the main internal regulator output voltage
    */
@@ -141,7 +141,7 @@ void SystemClock_Config (void)
   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
   RCC_OscInitStruct.PLL.PLLQ = RCC_PLLQ_DIV2;
   RCC_OscInitStruct.PLL.PLLR = RCC_PLLR_DIV2;
-  if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+  if(HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
     {
       Error_Handler();
     }
@@ -155,7 +155,7 @@ void SystemClock_Config (void)
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_4) != HAL_OK)
+  if(HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_4) != HAL_OK)
     {
       Error_Handler();
     }
@@ -169,12 +169,12 @@ void SystemClock_Config (void)
  * @brief  This function is executed in case of error occurrence.
  * @retval None
  */
-void Error_Handler (void)
+void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
   /* User can add his own implementation to report the HAL error return state */
   __disable_irq();
-  while (1)
+  while(1)
     {
       HAL_GPIO_TogglePin(LED_GPIO_Port, LED_Pin);
 
@@ -183,7 +183,7 @@ void Error_Handler (void)
        * not work. So in the error state the CPU time does not matter. Led
        * flashed with approx. 200 Hz.
        */
-      for (unsigned long i = 0; i < 850000; i++)
+      for(unsigned long i = 0; i < 850000; i++)
 	{
 	  asm("NOP");
 	}

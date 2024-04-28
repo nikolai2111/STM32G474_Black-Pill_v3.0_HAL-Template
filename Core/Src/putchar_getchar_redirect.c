@@ -50,9 +50,9 @@ PUTCHAR_PROTOTYPE
     {
       rc = CDC_Transmit_FS((uint8_t*) &ch, 1);
     }
-  while (USBD_BUSY == rc);
+  while(USBD_BUSY == rc);
 
-  if (USBD_FAIL == rc)
+  if(USBD_FAIL == rc)
     {
       /* NOTE: Should never reach here. */
       Error_Handler();
