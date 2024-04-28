@@ -40,35 +40,37 @@
 /* Private user code --------------------------------------------------------*/
 
 /**
- * @brief		Redirect putchar
+ * @brief	Redirect putchar
  *****************************************************************************/
 PUTCHAR_PROTOTYPE
 {
-	static uint8_t rc = USBD_OK;
+  static uint8_t rc = USBD_OK;
 
-	do
-	{
-		rc = CDC_Transmit_FS((uint8_t*) &ch, 1);
-	} while (USBD_BUSY == rc);
+  do
+    {
+      rc = CDC_Transmit_FS((uint8_t*) &ch, 1);
+    }
+  while (USBD_BUSY == rc);
 
-	if (USBD_FAIL == rc)
-	{
-		/* NOTE: Should never reach here. */
-		Error_Handler();
-		return 0;
-	}
+  if (USBD_FAIL == rc)
+    {
+      /* NOTE: Should never reach here. */
+      Error_Handler();
+      return 0;
+    }
 
-	return ch;
+  return ch;
 }
 
 /**
- * @brief		Redirect getchar
+ * @brief	Redirect getchar
+ * @attention	ToDo: Implement this function.
  *****************************************************************************/
 GETCHAR_PROTOTYPE
 {
-	uint8_t ch = 0;
-	/* Implement here */
-	return ch;
+  uint8_t ch = 0;
+  /* Implement here */
+  return ch;
 }
 
 /**
