@@ -31,9 +31,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/nikolai2111/STM32G474_Black-Pill_v3.0_Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
+  <a href="https://github.com/nikolai2111/STM32G474_Black-Pill_v3.0_Template"></a>
 
 <h3 align="center">Black Pill v3.0 STM32G474 Template</h3>
 
