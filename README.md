@@ -31,7 +31,7 @@
 <div align="center">
   <a href="https://github.com/nikolai2111/STM32G474_Black-Pill_v3.0_Template"></a>
 
-<h3 align="center">Black Pill v3.0 STM32G474 Template</h3>
+<h3 align="center">Black Pill v3.0 STM32G474 HAL-Template</h3>
 
   <p align="center">
     This is a small HAL template for the Black Pill v3.0 (STM32G474). It contains all files needed and additional file for the own libraries. It is desinged to use with the STMCubeIDE HAL-Library. 
