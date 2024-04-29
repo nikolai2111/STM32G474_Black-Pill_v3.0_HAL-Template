@@ -1,5 +1,3 @@
-# STM32G474_Black-Pill_v3.0_Template_Template
-
 <!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
 <a name="readme-top"></a>
 <!--
