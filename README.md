@@ -159,7 +159,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information. The l
 <!-- CONTACT -->
 ## Contact
 
-Nikolai Zoller - nikolai.zoller@hotmail.com
+Nikolai Zoller - [nikolai.zoller@hotmail.com](mailto:nikolai.zoller@hotmail.com)
 
 Project Link: [https://github.com/nikolai2111/STM32G474_Black-Pill_v3.0_HAL-Template](https://github.com/nikolai2111/STM32G474_Black-Pill_v3.0_HAL-Template)
 
