@@ -16,6 +16,7 @@
  */
 
 /* Includes -----------------------------------------------------------------*/
+#include "usart.h"
 #include "putchar_getchar_redirect.h"
 
 /* Private typedef ----------------------------------------------------------*/
@@ -38,7 +39,33 @@
 /* External functions --------------------------------------------------------*/
 
 /* Private user code --------------------------------------------------------*/
+#ifdef USE_UART_FOR_USB
+/**
+ * @brief		Redirect putchar
+ *****************************************************************************/
+PUTCHAR_PROTOTYPE
+{
+	HAL_UART_Transmit(&hlpuart1, (uint8_t*) &ch, 1, HAL_MAX_DELAY);
+	return ch;
+}
 
+/**
+ * @brief		Redirect getchar
+ *****************************************************************************/
+GETCHAR_PROTOTYPE
+{
+	uint8_t ch = 0;
+
+	/* Clear the Overrun flag just before receiving the first character */
+	__HAL_UART_CLEAR_OREFLAG(&hlpuart1);
+
+	/* Wait for reception of a character on the USART RX line and echo this
+	 * character on console */
+	HAL_UART_Receive(&hlpuart1, (uint8_t*) &ch, 1, HAL_MAX_DELAY);
+	HAL_UART_Transmit(&hlpuart1, (uint8_t*) &ch, 1, HAL_MAX_DELAY);
+	return ch;
+}
+#else
 /**
  * @brief	Redirect putchar
  *****************************************************************************/
@@ -72,7 +99,7 @@ GETCHAR_PROTOTYPE
   /* Implement here */
   return ch;
 }
-
+#endif
 /**
  ******************************************************************************
  * End Source	: Redirect putchar / getchar

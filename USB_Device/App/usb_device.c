@@ -83,7 +83,8 @@ void MX_USB_Device_Init(void)
     Error_Handler();
   }
   /* USER CODE BEGIN USB_Device_Init_PostTreatment */
-
+  /* Wait for connection */
+  while (CDC_Transmit_FS(NULL, 1) == USBD_FAIL);
   /* USER CODE END USB_Device_Init_PostTreatment */
 }
 
